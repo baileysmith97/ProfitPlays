@@ -1,2 +1,2 @@
 # ProfitPlays
-A system designed to help individuals reasearch faster an more reliable. It dives deeper then most free models. It searches the wen for every bit of information surrounding your inturion. 
+A designed system to give the bettor the edge in the arena of sports betting. Specifically modified to find hidden trends and patterns. That most are missing. Let the system do the work. An become more confident in your choices. 
