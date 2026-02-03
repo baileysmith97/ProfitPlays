@@ -1,0 +1,35 @@
+from rules import get_rule_adjustments
+from stats import get_base_projection
+
+# -----------------------------
+# Test NBA
+# -----------------------------
+nba_stats = {
+    'season_avg_pts': 22.5,
+    'last5_avg_pts': 26.0,
+    'season_avg_reb': 6.8,
+    'last5_avg_reb': 7.2,
+    'season_avg_ast': 4.1,
+    'last5_avg_ast': 5.0,
+    'pace_factor': 1.05,
+    'usage_factor': 1.08
+}
+
+nba_ctx = {
+    'pace_diff': 6,
+    'usage_change': 0.07,
+    'minutes_proj': 37,
+    'opp_vs_position_rank': 28,
+    'is_home': True,
+    'teammate_out_starter': True
+}
+
+base = get_base_projection('NBA', nba_stats)
+rules = get_rule_adjustments('NBA', nba_ctx)
+
+print("NBA Base Projection:", base)
+print("NBA Rule Adjustments:", rules)
+
+# Combine them
+final = {k: base[k] + rules.get(k, 0) for k in base}
+print("NBA Final Projection:", final)
