@@ -99,53 +99,7 @@ def nba_base_projection(s):
     )
     proj['assists'] = round(ast, 2)
 
-    return proj
-
-
-# -----------------------------
-# NFL BASE PROJECTIONS
-# -----------------------------
-def nfl_base_projection(s):
-    """
-    s = {
-        'season_avg_rush': float,
-        'last5_avg_rush': float,
-        'season_avg_rec': float,
-        'last5_avg_rec': float,
-        'season_avg_receptions': float,
-        'last5_avg_receptions': float,
-        'snap_share_factor': float,   # 0.80 to 1.20
-        'target_share_factor': float  # 0.80 to 1.20
-    }
-    """
-
-    proj = {}
-
-    # Rushing yards
-    rush = (
-        0.50 * s.get('season_avg_rush', 0) +
-        0.40 * s.get('last5_avg_rush', 0)
-    )
-    rush *= s.get('snap_share_factor', 1)
-    proj['rush_yards'] = round(rush, 2)
-
-    # Receiving yards
-    rec = (
-        0.50 * s.get('season_avg_rec', 0) +
-        0.40 * s.get('last5_avg_rec', 0)
-    )
-    rec *= s.get('target_share_factor', 1)
-    proj['rec_yards'] = round(rec, 2)
-
-    # Receptions
-    recs = (
-        0.50 * s.get('season_avg_receptions', 0) +
-        0.40 * s.get('last5_avg_receptions', 0)
-    )
-    recs *= s.get('target_share_factor', 1)
-    proj['receptions'] = round(recs, 2)
-
-    return proj# patterns.py
+    return proj patterns.py
 # Detects trends and role changes
 
 def detect_patterns(sport, data):
